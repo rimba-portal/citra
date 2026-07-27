@@ -11,16 +11,17 @@ use Filament\View\PanelsRenderHook;
 
 class BrandingServiceProvider extends BitesServiceProvider
 {
+    protected string $viewsPath = __DIR__ . '/../resources/views';
 
     protected function bootPackage(): void
     {
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
-            fn() => view('panel.branding')
+            fn() => view('bites::panel.branding')
         );
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
-            fn() => view('panel.branding')
+            fn() => view('bites::panel.branding')
         );
 
     }
