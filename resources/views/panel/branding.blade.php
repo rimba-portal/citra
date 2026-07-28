@@ -1,10 +1,10 @@
 <div id="slogan">
-    <h2>{{ $brand[slogan] }}</h2>
+    <h2>{{ $brand['slogan'] }}</h2>
 </div>
 
 <style>
     body {
-        background: url('{{ $brand[wallpaper] }}') no-repeat center center fixed;
+        background: url('{{ $brand['wallpaper'] }}') no-repeat center center fixed;
         background-size: cover;
     }
 

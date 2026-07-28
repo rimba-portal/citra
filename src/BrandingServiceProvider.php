@@ -47,9 +47,6 @@ class BrandingServiceProvider extends BitesServiceProvider
         if (collect(glob(public_path('branding/wallpaper.*')))->isEmpty()) {
             copy(__DIR__ . '/../resources/branding/wallpaper.png', public_path('branding/wallpaper.png'));
         }
-        if (collect(glob(public_path('branding/logo.*')))->isEmpty()) {
-            copy(__DIR__ . '/../resources/branding/logo.png', public_path('branding/logo.png'));
-        }
         if (collect(glob(public_path('branding/favicon.*')))->isEmpty()) {
             copy(__DIR__ . '/../resources/branding/favicon.png', public_path('branding/favicon.png'));
         }
@@ -57,8 +54,19 @@ class BrandingServiceProvider extends BitesServiceProvider
         if (! file_exists(public_path('branding/slogan.txt'))) {
             copy(__DIR__ . '/../resources/branding/slogan.txt', public_path('branding/slogan.txt'));
         }
+        // if (collect(glob(public_path('branding/logo.*')))->isEmpty()) {
+        //     copy(__DIR__ . '/../resources/branding/logo.png', public_path('branding/logo.png'));
+        // }
     }
-
+    protected function copyIfMissing(string $source, string $targetPattern, string $target): void
+    {
+        if (
+            collect(glob($targetPattern))->isEmpty()
+            && file_exists($source)
+        ) {
+            copy($source, $target);
+        }
+    }
     protected function resolveWallpaper(): string
     {
         $wallpaper = collect(glob(public_path('branding/wallpaper.*')))->first();
