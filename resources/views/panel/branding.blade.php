@@ -1,10 +1,10 @@
 <div id="slogan">
-    <h2>{{ config('bites.slogan') }}</h2>
+    <h2>{{ $brand[slogan] }}</h2>
 </div>
 
 <style>
     body {
-        background: url('{{ asset('images/atm.jpg') }}') no-repeat center center fixed;
+        background: url('{{ $brand[wallpaper] }}') no-repeat center center fixed;
         background-size: cover;
     }
 
@@ -35,7 +35,7 @@
             position: fixed;
             right: 50px;
             bottom: 25px;
-            color: var(--primary-600); 
+            color: var(--primary-600);
             font-family: Arial, sans-serif;
             font-size: 3em;
             font-weight: bold;
