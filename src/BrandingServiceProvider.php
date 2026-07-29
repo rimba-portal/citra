@@ -6,6 +6,7 @@ namespace Rimba\Branding;
 
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
+use Illuminate\Contracts\View\Factory;
 use Rimba\Base\Services\BitesServiceProvider;
 
 class BrandingServiceProvider extends BitesServiceProvider
@@ -23,11 +24,11 @@ class BrandingServiceProvider extends BitesServiceProvider
         ]);
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
-            fn () => view('bites::panel.branding')
+            fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
         );
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
-            fn () => view('bites::panel.branding')
+            fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
         );
 
     }
@@ -42,15 +43,19 @@ class BrandingServiceProvider extends BitesServiceProvider
         if (! is_dir(public_path('branding'))) {
             mkdir(public_path('branding'), 0755, true);
         }
+
         if (collect(glob(public_path('branding/wallpaper.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/wallpaper.png', public_path('branding/wallpaper.png'));
         }
+
         if (collect(glob(public_path('branding/favicon.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/favicon.png', public_path('branding/favicon.png'));
         }
+
         if (! file_exists(public_path('branding/slogan.txt'))) {
             copy(__DIR__.'/../resources/branding/slogan.txt', public_path('branding/slogan.txt'));
         }
+
         // if (collect(glob(public_path('branding/logo.*')))->isEmpty()) {
         //     copy(__DIR__ . '/../resources/branding/logo.png', public_path('branding/logo.png'));
         // }
