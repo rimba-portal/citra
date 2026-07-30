@@ -17,10 +17,10 @@ class BrandingServiceProvider extends BitesServiceProvider
     {
         $this->ensureBrandingExists();
         view()->share('brand', [
+            ...$this->resolveBranding(),
             'wallpaper' => $this->resolveWallpaper(),
-            'slogan' => $this->resolveSlogan(),
+            'lobby' => $this->resolveLobby(),
             'favicon' => asset('branding/favicon.ico'),
-            // 'logo'      => asset('branding/logo.png'),
         ]);
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
@@ -43,22 +43,15 @@ class BrandingServiceProvider extends BitesServiceProvider
         if (! is_dir(public_path('branding'))) {
             mkdir(public_path('branding'), 0755, true);
         }
-
         if (collect(glob(public_path('branding/wallpaper.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/wallpaper.png', public_path('branding/wallpaper.png'));
         }
-
         if (collect(glob(public_path('branding/favicon.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/favicon.png', public_path('branding/favicon.png'));
         }
-
-        if (! file_exists(public_path('branding/slogan.txt'))) {
-            copy(__DIR__.'/../resources/branding/slogan.txt', public_path('branding/slogan.txt'));
+        if (! file_exists(public_path('branding/text.json'))) {
+            copy(__DIR__.'/../resources/branding/text.json', public_path('branding/text.json'));
         }
-
-        // if (collect(glob(public_path('branding/logo.*')))->isEmpty()) {
-        //     copy(__DIR__ . '/../resources/branding/logo.png', public_path('branding/logo.png'));
-        // }
     }
 
     protected function copyIfMissing(string $source, string $targetPattern, string $target): void
@@ -78,8 +71,23 @@ class BrandingServiceProvider extends BitesServiceProvider
         return asset('branding/'.basename($wallpaper));
     }
 
-    protected function resolveSlogan(): string
+    protected function resolveLobby(): string
     {
-        return trim(file_get_contents(public_path('branding/slogan.txt')));
+        $lobby = collect(glob(public_path('branding/lobby.*')))->first();
+
+        return asset('branding/'.basename($lobby));
+    }
+
+    protected function resolveBranding(): array
+    {
+        $file = public_path('branding/text.json');
+        if (! file_exists($file)) {
+            return [];
+        }
+
+        return json_decode(
+            file_get_contents($file),
+            true
+        ) ?? [];
     }
 }

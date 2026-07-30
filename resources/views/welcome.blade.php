@@ -10,7 +10,7 @@
         /* Sets full-screen background using your local image path */
         body {
             background-color: rgb(0, 0, 0);
-            background-image: url('pics/rimba.png');
+            background: url('{{ $brand['wallpaper'] }}') no-repeat center center fixed;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -37,6 +37,8 @@
         .content-box {
             background-color: rgba(0, 0, 0, 0.6);
             max-width: 600px;
+            left: 100px;
+            top: 50px;
             width: 100%;
             padding: 40px;
             border-radius: 10px;
@@ -145,21 +147,23 @@
 
 <body>
 
-    <!-- Main Centered Content Box -->
     <div class="content-box">
-        <h1>The Industrial Nervous System for Factory</h1>
-        <p>Designed for modern manufacturing and enterprise teams, RIMBA brings everything organization needs into one
-            unified platform — enabling clarity, efficiency, and smarter decisions at every level.</p>
+        <h1>{{ $brand['headline'] }}</h1>
+
+        <p>
+            {{ $brand['description'] }}
+        </p>
 
         <div class="button-container">
-            <a href="{{ route('filament.staff.pages.dashboard') }}" class="button-link">Go to Login</a>
+            {{ route('filament.staff.pages.dashboard') }}" class="button-link">
+            {{ $brand['login_text'] ?? 'Go to Login' }}
+            </a>
         </div>
     </div>
 
-    <!-- NEW: Floating Text Box -->
     <div class="floating-box">
-        <h2>RIMBA</h2>
-        Reliable Information on Manufacturing & Business Activities
+        <h2>{{ $brand['name'] }}</h2>
+        {{ $brand['motto'] }}
     </div>
 
 </body>
