@@ -155,9 +155,7 @@
         </p>
 
         <div class="button-container">
-            {{ route('filament.staff.pages.dashboard') }}" class="button-link">
-            {{ $brand['login_text'] ?? 'Go to Login' }}
-            </a>
+            <a href="{{ route('filament.staff.pages.dashboard') }}" class="button-link">Go to Login</a>
         </div>
     </div>
 
