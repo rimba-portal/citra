@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rimba\Branding;
 
+use Filament\Support\Facades\FilamentColor;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Contracts\View\Factory;
@@ -30,7 +31,19 @@ class BrandingServiceProvider extends BitesServiceProvider
             PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
             fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
         );
-
+        FilamentColor::register([
+            'a1-blue' => '#0F4C8D',
+            'a1-teal' => '#0A83A0',
+            'a2-green' => '#479E90',
+            'a2-wine' => '#7F174C',
+            'a2-dark-plum' => '#4A3E6E',
+            'a2-gold' => '#DA8E27',
+            'a2-steel-gray' => '#454D59',
+            'a3-light-blue' => '#69ACD9',
+            'a3-rose' => '#EA6381',
+            'a3-yellow' => '#F7CF5E',
+            'a3-purple' => '#6C57A2',
+        ]);
     }
 
     protected function registerPackage(): void
