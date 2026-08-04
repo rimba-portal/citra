@@ -34,7 +34,7 @@ class BrandingServiceProvider extends BitesServiceProvider
             fn(): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
         );
         FilamentIcon::register([
-            PanelsIconAlias::PAGES_DASHBOARD_NAVIGATION_ITEM => 'rimba-dashboard',
+            PanelsIconAlias::PAGES_DASHBOARD_NAVIGATION_ITEM => 'bites-dashboard',
         ]);
         FilamentColor::register([
             'a1-blue' => '#0F4C8D',
