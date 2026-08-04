@@ -33,8 +33,8 @@
 
         #slogan {
             position: fixed;
-            left: 50px;
-            bottom: 25px;
+            left: 250px;
+            bottom: 100px;
             color: var(--primary-600);
             font-family: Arial, sans-serif;
             font-size: 3em;
