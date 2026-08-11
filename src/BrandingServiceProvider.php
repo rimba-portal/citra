@@ -62,10 +62,6 @@ class BrandingServiceProvider extends BitesServiceProvider
             copy(__DIR__.'/../resources/branding/wallpaper.png', public_path('branding/wallpaper.png'));
         }
 
-        if (collect(glob(public_path('branding/unknown_user.*')))->isEmpty()) {
-            copy(__DIR__.'/../resources/branding/unknown_user.png', public_path('branding/unknown_user.png'));
-        }
-
         if (collect(glob(public_path('branding/lobby.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/lobby.png', public_path('branding/lobby.png'));
         }
