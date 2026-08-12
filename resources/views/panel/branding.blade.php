@@ -24,7 +24,7 @@
         top: 20px;
     }
 
-    @media screen and (min-height: 700px) and (min-width: 1200px) {
+    @media screen and (min-height: 520px) and (min-width: 900px) {
         main {
             position: absolute;
             right: 70px;
