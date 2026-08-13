@@ -57,15 +57,19 @@ class BrandingServiceProvider extends BitesServiceProvider
         if (! is_dir(public_path('branding'))) {
             mkdir(public_path('branding'), 0755, true);
         }
+
         if (collect(glob(public_path('branding/wallpaper.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/wallpaper.png', public_path('branding/wallpaper.png'));
         }
+
         if (collect(glob(public_path('branding/lobby.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/lobby.png', public_path('branding/lobby.png'));
         }
+
         if (collect(glob(public_path('branding/favicon.*')))->isEmpty()) {
             copy(__DIR__.'/../resources/branding/favicon.png', public_path('branding/favicon.png'));
         }
+
         if (! file_exists(public_path('branding/text.json'))) {
             copy(__DIR__.'/../resources/branding/text.json', public_path('branding/text.json'));
         }
