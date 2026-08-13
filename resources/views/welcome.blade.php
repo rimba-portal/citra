@@ -109,16 +109,16 @@
             background: rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(4px);
 
-            padding: 20px 24px;
+            padding: 10px 12px;
             border-left: 3px solid rgba(216, 200, 165, 0.5);
 
-            font-size: 24px;
+            font-size: 18px;
             text-align: left;
-            max-width: 450px;
-            line-height: 1.5;
+            max-width: 300px;
+            line-height: 1.2;
 
-            bottom: 40px;
-            right: 40px;
+            bottom: 20px;
+            right: 20px;
 
             text-shadow:
                 0 2px 8px rgba(0, 0, 0, 0.8);
@@ -160,8 +160,9 @@
     </div>
 
     <div class="floating-box">
+         {{ $brand['motto'] }}
         <h2>{{ $brand['name'] }}</h2>
-        {{ $brand['motto'] }}
+       
     </div>
 
 </body>
