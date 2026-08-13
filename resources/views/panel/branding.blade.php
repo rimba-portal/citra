@@ -44,16 +44,15 @@
             white-space: normal;
             text-align: center;
         }
-
     }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Redirects the logo/header to the dashboard when clicked
         const headers = document.querySelectorAll('.fi-simple-header');
-        headers.forEach(header => {
-            header.addEventListener('click', function() {
+        headers.forEach((header) => {
+            header.addEventListener('click', function () {
                 window.location.href = "{{ route('filament.staff.pages.dashboard') }}";
             });
         });

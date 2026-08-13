@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rimba Page</title>
-    <link rel="icon" type="image/x-icon" href="/branding/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/branding/favicon.png" />
     <style>
         /* Sets full-screen background using your local image path */
         body {
@@ -102,7 +101,7 @@
             position: absolute;
 
             /* Premium jungle-inspired typography */
-            font-family: "Cormorant Garamond", "Georgia", serif;
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
             color: #d8c8a5;
             /* warm bamboo/sand tone */
 
@@ -120,8 +119,7 @@
             bottom: 20px;
             right: 20px;
 
-            text-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         /* RESPONSIVE BREAKPOINT */
@@ -146,13 +144,10 @@
 </head>
 
 <body>
-
     <div class="content-box">
         <h1>{{ $brand['headline'] }}</h1>
 
-        <p>
-            {{ $brand['description'] }}
-        </p>
+        <p>{{ $brand['description'] }}</p>
 
         <div class="button-container">
             <a href="{{ route('filament.staff.pages.dashboard') }}" class="button-link">Go to Login</a>
@@ -160,11 +155,8 @@
     </div>
 
     <div class="floating-box">
-         {{ $brand['motto'] }}
+        {{ $brand['motto'] }}
         <h2>{{ $brand['name'] }}</h2>
-       
     </div>
-
 </body>
-
 </html>
