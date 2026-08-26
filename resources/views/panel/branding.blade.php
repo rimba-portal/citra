@@ -24,23 +24,22 @@
         top: 20px;
     }
 
-    @media screen and (min-height: 520px) and (min-width: 900px) {
+    @media screen and (min-height: 500px) and (min-width: 1230px) {
         main {
             position: absolute;
-            right: 70px;
-            top: 50px;
+            right: 10px;
         }
 
         #slogan {
             position: fixed;
-            left: 250px;
-            bottom: 100px;
+            left: 150px;
+            bottom: 50px;
             color: var(--primary-600);
             font-family: Arial, sans-serif;
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
             z-index: 10;
-            width: 700px;
+            width: 600px;
             white-space: normal;
             text-align: center;
         }
