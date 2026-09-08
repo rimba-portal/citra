@@ -31,14 +31,6 @@ class BrandingServiceProvider extends BitesServiceProvider
             PanelsRenderHook::AUTH_REGISTER_FORM_AFTER,
             fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
         );
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::AUTH_PASSWORD_RESET_REQUEST_FORM_AFTER,
-            fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
-        );
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::AUTH_PASSWORD_RESET_RESET_FORM_AFTER,
-            fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel.branding')
-        );
         FilamentColor::register([
             'a1-blue' => '#0F4C8D',
             'a1-teal' => '#0A83A0',
